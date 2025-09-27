@@ -1,0 +1,6 @@
+@DataStorage_And_Removal_HostAddress = http://localhost:5147
+
+GET {{DataStorage_And_Removal_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

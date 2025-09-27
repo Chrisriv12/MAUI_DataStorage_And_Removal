@@ -1,0 +1,32 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using DataStorage_And_Removal.Models;
+using DataStorage_And_Removal.DataAccess;
+using System.Security.Cryptography.X509Certificates;
+
+// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+
+namespace DataStorage_And_Removal.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class PersonController : ControllerBase
+    {
+        // GET: api/<PersonController>
+        [HttpGet]
+        public IEnumerable<Person> Get()
+        {
+            return new PersonData().GetPeople();
+        }
+        
+
+        // POST api/<PersonController>
+        [HttpPost]
+        public void Post([FromBody] Person value)
+        {
+            var pd = new PersonData();
+            pd.SavePerson(value);
+        
+        }
+        
+    }
+}
